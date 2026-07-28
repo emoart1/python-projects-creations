@@ -1,33 +1,33 @@
 # number guessing game in python 
 import random 
 number =  random.randint(1, 100) 
-
-userinput1 = input("I'm thinking of a number try to guess it in ten tries\n")
-userinput2 = int(userinput1) 
-tries = 0 
-while tries != 10 :
-    if userinput2 <= 100 & userinput2 >= 0 : 
-        if userinput2 == number & tries == 0 : 
+print(number) 
+tries = 1 
+guess = int(input("I'm thinking of a number try to guess it in ten tries\n")) 
+while tries != 11 :
+    if 0 <= guess <= 100 : 
+        if guess == number and tries == 1 : 
             print("congrats, you guessed right on the first try") 
             break 
-        elif userinput2 == number & tries != 0 : 
-            print("you guessed corect\n") 
+        elif guess == number and tries != 1 : 
+            print("you guessed corect") 
             print(f"it took you {tries} tries") 
             break 
-        elif userinput2 != number & tries == 8 : 
+        elif guess != number and tries == 9 : 
             tries += 1 
-            userinput1 = input("last guess\n") 
-            userinput2 = int(userinput1) 
-        elif userinput2 != number & tries == 9 :
+            guess = int(input("last guess\n"))  
+        elif guess != number and tries == 10 :
             print("you have failed to guess the number") 
             print("better luck next time :)")
             tries += 1 
-        elif userinput2 != number : 
-            print("wrong") 
+        elif guess != number : 
+            if number < guess : 
+                print("too high, try lower")
+            elif number > guess :  
+                print("too low, try higher")
             tries += 1 
-            userinput1 = input("guess again\n") 
-            userinput2 = int(userinput1) 
-    elif userinput2 < 0 or userinput2 > 100 :
+            guess = int(input("guess again\n"))
+    elif guess < 0 or guess > 100 :
         print("the number is between 0 and 100 btw") 
-        userinput1 = input("try guessing again, right this time\n") 
-        userinput2 = int(userinput1) 
+        guess = int(input("try guessing again, right this time\n")) 
+      
