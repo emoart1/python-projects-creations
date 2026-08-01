@@ -14,7 +14,9 @@ def fibonacci(limit):
         if num1 % 2 == 0:
             sum += num1
 
-        num1, num2 = num2, num1 + num2
+        temp = num1
+        num1 = num2
+        num2 = temp + num2
 
     return sum 
 
